@@ -17,7 +17,7 @@ module.exports = class extends SpringControllerGenerator {
 
     get initializing() {
         /**
-         * Any method beginning with _ can be reused from the superclass `SpringControllerGenerator`
+         * Any method beginning with _ can be reused from the superclass `ClientGenerator`
          *
          * There are multiple ways to customize a phase from JHipster.
          *
@@ -39,21 +39,23 @@ module.exports = class extends SpringControllerGenerator {
          * ```
          *
          * 3. Partially override a phase, this is when the blueprint gets the phase from JHipster and customizes it.
-         * ```
-         *      const phaseFromJHipster = super._initializing();
-         *      const myCustomPhaseSteps = {
-         *          displayLogo() {
-         *              // override the displayLogo method from the _initializing phase of JHipster
-         *          },
-         *          myCustomInitPhaseStep() {
-         *              // Do all your stuff here
-         *          },
-         *      }
-         *      return Object.assign(phaseFromJHipster, myCustomPhaseSteps);
-         * ```
          */
+        const phaseFromJHipster = super._initializing();
+        const myCustomPhaseSteps = {
+            init(args) {
+                if (args === 'default') {
+                    this.default = true;
+                }
+                this.generators = {
+                    'spring-controller': { name: 'SpringControllerGenerator', path: 'generators/spring-controller' }
+                };
+            }
+        };
+        return Object.assign(phaseFromJHipster, myCustomPhaseSteps);
+
         // Here we are not overriding this phase and hence its being handled by JHipster
-        return super._initializing();
+
+        // return super._initializing();
     }
 
     get prompting() {
