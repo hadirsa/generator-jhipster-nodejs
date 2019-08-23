@@ -5,7 +5,7 @@
   "keywords": [
     "yeoman-generator",
     "jhipster-blueprint",
-    "jhipster-5",
+    "jhipster-6",
     "nodejs"
   ],
   "homepage": "https://github.com/amanganiello90/generator-jhipster-nodejs#readme",
@@ -14,23 +14,25 @@
     "email": "angelo.mang@libero.it",
     "url": "https://github.com/amanganiello90"
   },
+  "contributors": [
+    "Deepu KS <d4udts@gmail.com> (https://deepu105.github.io)",
+    "Hadi Rasouli (https://github.com/hadirsa)",
+    "Iván García Sainz-Aja (https://github.com/ivangsa)",
+    "Daniel Franco <dandrfranco@gmail.com> (https://github.com/DanielFran)"
+  ],
   "files": [
-    "generators",
-    "cli"
+    "generators"
   ],
   "main": "generators/app/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/amanganiello90/generator-jhipster-nodejs.git"
   },
-  "bin": {
-    "nhipster": "./cli/nhipster.js"
-  },
   "dependencies": {
     "chalk": "2.4.2",
     "commander": "2.20.0",
     "ejs": "2.6.1",
-    "generator-jhipster": ">=5.4.0",
+    "generator-jhipster": ">=6.2.0",
     "glob": "7.1.4",
     "gulp-filter": "6.0.0",
     "insight": "0.10.3",
@@ -47,7 +49,7 @@
     "through2": "3.0.1",
     "yeoman-environment": "2.3.4",
     "yeoman-generator": "4.0.1",
-    "yo": "^3.1.0"
+    "yo": "3.1.0"
   },
   "devDependencies": {
     "chai": "4.2.0",
@@ -78,7 +80,7 @@
     "release:major": "npm version major -a -m \"Update to %s\" && npm run release"
   },
   "engines": {
-    "node": ">=8.12.0",
+    "node": ">=8.10.0",
     "npm": ">=5.6.0"
   },
   "license": "Apache-2.0",
